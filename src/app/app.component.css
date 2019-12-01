@@ -1,0 +1,13 @@
+span {
+  margin-right: 1rem;
+}
+
+.navbar {
+  position: relative;
+  justify-content: center;
+}
+
+.icon {
+  position: absolute;
+  right: 20px;
+}

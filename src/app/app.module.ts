@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
-import { MatSliderModule } from '@angular/material/slider'
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { MatSliderModule } from '@angular/material/slider'
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
