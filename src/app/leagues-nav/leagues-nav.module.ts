@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LeaguesNavComponent } from './leagues-nav.component';
 import { MaterialModule } from '../material/material.module';
+import { GamesListModule } from './games-list/games-list.module';
 
 
 
@@ -9,7 +10,8 @@ import { MaterialModule } from '../material/material.module';
   declarations: [LeaguesNavComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    GamesListModule
   ],
   exports: [LeaguesNavComponent],
 })

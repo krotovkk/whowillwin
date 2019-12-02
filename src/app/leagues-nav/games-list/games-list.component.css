@@ -1,0 +1,29 @@
+.navbar {
+  justify-content: center;
+}
+
+span {
+  margin-right: 1rem;
+}
+
+.games__list {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap:30px;
+  justify-content: center;
+}
+
+.team__logo {
+  margin-right: 10px;
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.score__form {
+  width: 100px;
+}
+
+.score__forms {
+  display: flex;
+  justify-content: space-around;
+}

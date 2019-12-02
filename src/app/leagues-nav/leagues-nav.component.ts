@@ -14,7 +14,7 @@ export class LeaguesNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.leagues = this.getLeagues();
+    this.leagues = this.getLeagues();    
   }
 
   private getLeagues(): ILeagueCard[] {
