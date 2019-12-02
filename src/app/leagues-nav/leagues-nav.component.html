@@ -1,9 +1,9 @@
 <mat-toolbar color="primary" class="navbar">
-  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup">
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" (change)="onChange(toggleGroup.value)">
     <mat-button-toggle value={{league.value}} *ngFor="let league of leagues">
       <img class="league__img" src={{league.logoLink}}>{{league.name}}
     </mat-button-toggle>
   </mat-button-toggle-group>
   <mat-icon class="icon">eco</mat-icon>
 </mat-toolbar>
-<app-games-list></app-games-list>
+<app-games-list [currentLeague]="currentLeague"></app-games-list>
