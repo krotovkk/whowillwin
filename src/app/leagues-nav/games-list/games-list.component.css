@@ -8,7 +8,7 @@ span {
 
 .games__list {
   display: grid;
-  grid-template-columns: repeat(3, 400px);
+  grid-template-columns: repeat(3, 500px);
   gap:30px;
   justify-content: center;
 }
@@ -25,5 +25,5 @@ span {
 
 .score__forms {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between; 
 }
