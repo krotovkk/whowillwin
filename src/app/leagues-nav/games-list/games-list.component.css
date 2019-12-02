@@ -21,9 +21,10 @@ span {
 
 .score__form {
   width: 100px;
+  margin-right: 40px;
 }
 
-.score__forms {
+/* .score__forms {
   display: flex;
   justify-content: space-between; 
-}
+} */

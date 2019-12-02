@@ -1,12 +1,12 @@
 <div class="games__list">
-  <mat-expansion-panel>
+  <mat-expansion-panel *ngFor="let game of games">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <img src="https://media.api-football.com/teams/529.png" class="team__logo">
-        <span class="first">Barcelona</span>
+        <img src="{{ game.homeTeam.logoLink }}" class="team__logo">
+        <span class="first">{{ game.homeTeam.name }}</span>
         <span>-</span>
-        <img src="https://media.api-football.com/teams/541.png" class="team__logo">
-        <span class="second">Real Madrid</span>
+        <img src="{{ game.awayTeam.logoLink }}" class="team__logo">
+        <span class="second">{{ game.awayTeam.name }}</span>
       </mat-panel-title>
       <mat-panel-description>
         Прогноза нет
@@ -14,11 +14,14 @@
     </mat-expansion-panel-header>
     <div class="score__forms">
       <mat-form-field class="score__form">
-        <input matInput placeholder="Barcelona" class="score__input">
+        <input matInput placeholder="{{ game.homeTeam.name }}" class="score__input">
       </mat-form-field>
       <mat-form-field class="score__form">
-        <input matInput placeholder="Real" class="score__input">
+        <input matInput placeholder="{{ game.awayTeam.name }}" class="score__input">
       </mat-form-field>
     </div>
+    <mat-action-row>
+      <button mat-button color="accent">Отправить</button>
+    </mat-action-row>
   </mat-expansion-panel>
 </div>
