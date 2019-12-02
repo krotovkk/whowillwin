@@ -1,0 +1,14 @@
+.team__logo {
+  margin-right: 10px;
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.score__form {
+  width: 100px;
+  margin-right: 40px;
+}
+
+span {
+  margin-right: 1rem;
+}

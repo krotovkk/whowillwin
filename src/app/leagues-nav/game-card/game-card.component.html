@@ -1,0 +1,25 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <img src="{{ game.homeTeam.logoLink }}" class="team__logo">
+      <span class="first">{{ game.homeTeam.name }}</span>
+      <span>-</span>
+      <img src="{{ game.awayTeam.logoLink }}" class="team__logo">
+      <span class="second">{{ game.awayTeam.name }}</span>
+    </mat-panel-title>
+    <mat-panel-description>
+      Прогноза нет
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div class="score__forms">
+    <mat-form-field class="score__form">
+      <input matInput placeholder="{{ game.homeTeam.name }}" class="score__input">
+    </mat-form-field>
+    <mat-form-field class="score__form">
+      <input matInput placeholder="{{ game.awayTeam.name }}" class="score__input">
+    </mat-form-field>
+  </div>
+  <mat-action-row>
+    <button mat-button color="accent">Отправить</button>
+  </mat-action-row>
+</mat-expansion-panel>
