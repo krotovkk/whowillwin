@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LeaguesNavModule } from './leagues-nav/leagues-nav.module';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { LeaguesNavModule } from './leagues-nav/leagues-nav.module';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    LeaguesNavModule
+    LeaguesNavModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

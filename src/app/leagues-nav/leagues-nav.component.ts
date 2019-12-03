@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ILeagueCard } from "../model/ileaguecard";
+import { FootballApiHttpService } from '../services/football-api-http.service';
 
 @Component({
   selector: 'app-leagues-nav',
@@ -12,27 +13,28 @@ export class LeaguesNavComponent implements OnInit {
   leagues: ILeagueCard[];
   currentLeague: ILeagueCard;
 
-  constructor() { }
+  constructor( private footballAPIService: FootballApiHttpService ) { }
 
   ngOnInit() {
     this.leagues = this.getLeagues();    
   }
 
   onChange(val: string) {
-    this.currentLeague = this.leagues.filter(league => league.value === val)[0];
-    this.getCurrentLeagueRound(this.currentLeague.id);
+    const currentLeague = this.leagues.filter(league => league.value === val)[0];
+    this.getCurrentLeagueRound(currentLeague);
   }
 
-  private async getCurrentLeagueRound(leagueId: number) {
-    const data = await fetch(`https://api-football-v1.p.rapidapi.com/v2/fixtures/rounds/${leagueId}/current`, {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        "x-rapidapi-key": "6b329fe810msh8c2e124ed165b44p129ec0jsn4c1f4247bc48"
+  private getCurrentLeagueRound(currentLeague: ILeagueCard) {
+    this.footballAPIService.getCurrentLeagueRound(currentLeague.id).subscribe(
+      round => {
+        currentLeague.round = round
+        this.setCurrentLeague(currentLeague)
       }
-    }).then(response => response.json());
-    this.currentLeague.round = data.api.fixtures[0];
-    console.log("TCL: LeaguesNavComponent -> constructor -> currentLeague", this.currentLeague)
+    );
+  }
+
+  private setCurrentLeague(currentLeague: ILeagueCard) {
+    this.currentLeague = currentLeague;
   }
 
   private getLeagues(): ILeagueCard[] {
