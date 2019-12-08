@@ -16,8 +16,8 @@ export class AddForecastComponent implements OnInit {
 
   ngOnInit() {
     this.form= this.formBuilder.group({
-      homeTeamScore: ['', Validators.required],
-      awayTeamScore: ['', Validators.required]
+      goalsHomeTeam: ['', Validators.required],
+      goalsAwayTeam: ['', Validators.required]
     });
   }
 

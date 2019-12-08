@@ -26,11 +26,21 @@ export class GamesListComponent implements OnInit {
 
   private parseGames(games) {
     this.games = games.map(game => {
-      const homeTeam = { name: game.homeTeam.team_name, logoLink: game.homeTeam.logo };
+      const homeTeam = { 
+        name: game.homeTeam.team_name,
+        logoLink: game.homeTeam.logo
+      };
       
-      const awayTeam = { name: game.awayTeam.team_name, logoLink: game.awayTeam.logo};
+      const awayTeam = {
+        name: game.awayTeam.team_name,
+        logoLink: game.awayTeam.logo
+      };
 
-      return {homeTeam, awayTeam};
+      return {
+        homeTeam,
+        awayTeam,
+        game_id: game.fixture_id       
+      };
     });
   }
 
@@ -38,7 +48,6 @@ export class GamesListComponent implements OnInit {
     this.footballAPIService.getAllGamesByRoundAndId(this.currentLeague.id, this.currentLeague.round)
       .subscribe( data => {
         this.parseGames(data)
-        console.log(data)
       }
     );
   }
