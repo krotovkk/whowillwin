@@ -3,6 +3,7 @@ import { IGame } from 'src/app/model/igame';
 import { ILeagueCard } from 'src/app/model/ileaguecard';
 import { FootballApiHttpService } from 'src/app/services/football-api-http.service';
 import { GameLocalDataService } from 'src/app/services/game-local-data.service';
+import { GameForecastHttpService } from 'src/app/services/game-forecast-http.service';
 
 @Component({
   selector: 'app-games-list',
@@ -15,10 +16,14 @@ export class GamesListComponent implements OnInit {
 
   constructor(
     private footballAPIService: FootballApiHttpService,
-    private gameLocalDataService: GameLocalDataService
+    private gameLocalDataService: GameLocalDataService,
+    private gameForecastService: GameForecastHttpService,
   ) { }
 
   ngOnInit() {
+    this.gameForecastService.getForecasts().subscribe(data => 
+      console.log(data)
+    )
     // this.getGames();
   }
 

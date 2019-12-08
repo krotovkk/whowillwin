@@ -23,5 +23,6 @@
 <button mat-button
   color="accent"
   class="add-forecast__button"
-  [disabled]="form.pristine || form.invalid">Отправить</button>
+  [disabled]="form.pristine || form.invalid"
+  (click)="onSubmit()">Отправить</button>
 
