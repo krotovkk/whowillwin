@@ -33,8 +33,13 @@ export class FootballApiHttpService {
       }
     )
     .pipe(
-      map( data =>
-        data.api.fixtures.map(game => ({ homeTeam: game.homeTeam, awayTeam: game.awayTeam })) 
+      map( data => 
+        data.api.fixtures.map(game => (
+          {
+            game: game,
+            homeTeam: game.homeTeam,
+            awayTeam: game.awayTeam 
+          })) 
       )
     );
   }

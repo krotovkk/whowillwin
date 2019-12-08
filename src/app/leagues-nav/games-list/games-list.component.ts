@@ -36,7 +36,10 @@ export class GamesListComponent implements OnInit {
 
   private getGames() {
     this.footballAPIService.getAllGamesByRoundAndId(this.currentLeague.id, this.currentLeague.round)
-      .subscribe( data => this.parseGames(data)
+      .subscribe( data => {
+        this.parseGames(data)
+        console.log(data)
+      }
     );
   }
 
