@@ -5,6 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { GamesListComponent } from './games-list/games-list.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { AddForecastComponent } from './game-card/add-forecast/add-forecast.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { AddForecastComponent } from './game-card/add-forecast/add-forecast.comp
   declarations: [LeaguesNavComponent, GamesListComponent, GameCardComponent, AddForecastComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [LeaguesNavComponent],
 })

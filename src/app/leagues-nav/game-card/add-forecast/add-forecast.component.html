@@ -1,10 +1,27 @@
-<div class="score__forms">
+<div class="score__forms" [formGroup]="form">
   <mat-form-field class="score__form">
-    <input matInput placeholder="{{ game.homeTeam.name }}" class="score__input" type="number" min=0>
+    
+    <input matInput
+      placeholder="{{ game.homeTeam.name }}"
+      class="score__input"
+      type="number"
+      min=0
+      formControlName="homeTeamScore">
+      
   </mat-form-field>
   <mat-form-field class="score__form">
-    <input matInput placeholder="{{ game.awayTeam.name }}" class="score__input" type="number" min=0>
+    
+    <input matInput
+      placeholder="{{ game.awayTeam.name }}"
+      class="score__input"
+      type="number"
+      min=0
+      formControlName="awayTeamScore">
+  
   </mat-form-field>
 </div>
-<button mat-button color="accent" class="add-forecast__button">Отправить</button>
+<button mat-button
+  color="accent"
+  class="add-forecast__button"
+  [disabled]="form.pristine || form.invalid">Отправить</button>
 

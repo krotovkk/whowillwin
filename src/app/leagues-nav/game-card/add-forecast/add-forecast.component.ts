@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IGame } from 'src/app/model/igame';
 
 @Component({
   selector: 'app-add-forecast',
@@ -6,11 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./add-forecast.component.css']
 })
 export class AddForecastComponent implements OnInit {
-  @Input() game;
+  @Input() game: IGame;
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.form= this.formBuilder.group({
+      homeTeamScore: ['', Validators.required],
+      awayTeamScore: ['', Validators.required]
+    });
   }
 
 }
