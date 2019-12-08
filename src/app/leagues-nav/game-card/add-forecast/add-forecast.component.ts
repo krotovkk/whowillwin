@@ -24,13 +24,9 @@ export class AddForecastComponent implements OnInit {
       goalsHomeTeam: [this.goalsHomeTeam ? this.goalsHomeTeam : '', Validators.required],
       goalsAwayTeam: [this.goalsAwayTeam ? this.goalsAwayTeam : '', Validators.required]
     });
-    console.log(this.game);
-    
   }
 
   onSubmit() {
-    console.log('aaaa');
-    
     this.gameForecastHttpService.addForecast({
       gameId: this.game.gameId,
       goalsHomeTeam: this.form.value.goalsHomeTeam,
