@@ -1,4 +1,4 @@
 export interface ITeam {
-  name: string,
-  logoLink: string,
+  team_name: string,
+  logo: string,
 }

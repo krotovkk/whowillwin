@@ -19,6 +19,7 @@ export class AddForecastComponent implements OnInit {
       goalsHomeTeam: ['', Validators.required],
       goalsAwayTeam: ['', Validators.required]
     });
+    console.log(this.game)
   }
 
 }

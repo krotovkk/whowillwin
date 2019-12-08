@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IRoundGame } from '../model/iround-game';
+import { IGame } from '../model/igame';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameLocalDataService {
-  private roundGames: IRoundGame[];
+  private roundGames: IGame[];
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class GameLocalDataService {
     ))
   }
 
-  getRoundGames(): IRoundGame[] {
+  getRoundGames(): IGame[] {
     return this.roundGames
   }
 }

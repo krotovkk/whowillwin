@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IGame } from 'src/app/model/igame';
 import { ILeagueCard } from 'src/app/model/ileaguecard';
 import { FootballApiHttpService } from 'src/app/services/football-api-http.service';
+import { GameLocalDataService } from 'src/app/services/game-local-data.service';
 
 @Component({
   selector: 'app-games-list',
@@ -12,7 +13,10 @@ export class GamesListComponent implements OnInit {
   @Input() currentLeague: ILeagueCard;
   games: IGame[];
 
-  constructor(private footballAPIService: FootballApiHttpService) { }
+  constructor(
+    private footballAPIService: FootballApiHttpService,
+    private gameLocalDataService: GameLocalDataService
+  ) { }
 
   ngOnInit() {
     // this.getGames();
@@ -24,30 +28,15 @@ export class GamesListComponent implements OnInit {
     }
   }
 
-  private parseGames(games) {
-    this.games = games.map(game => {
-      const homeTeam = { 
-        name: game.homeTeam.team_name,
-        logoLink: game.homeTeam.logo
-      };
-      
-      const awayTeam = {
-        name: game.awayTeam.team_name,
-        logoLink: game.awayTeam.logo
-      };
-
-      return {
-        homeTeam,
-        awayTeam,
-        game_id: game.fixture_id       
-      };
-    });
+  private parseGames( ) {
+    this.games = this.gameLocalDataService.getRoundGames()
   }
 
   private getGames() {
     this.footballAPIService.getAllGamesByRoundAndId(this.currentLeague.id, this.currentLeague.round)
       .subscribe( data => {
-        this.parseGames(data)
+        this.gameLocalDataService.setRoundGames(data),
+        this.parseGames()
       }
     );
   }
