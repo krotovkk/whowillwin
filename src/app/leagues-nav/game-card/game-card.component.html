@@ -13,10 +13,18 @@
   </mat-expansion-panel-header>
   <div class="score__forms">
     <mat-form-field class="score__form">
-      <input matInput placeholder="{{ game.homeTeam.name }}" class="score__input">
+      <input matInput
+        placeholder="{{ game.homeTeam.name }}"
+        class="score__input"
+        type="number"
+        min=0>
     </mat-form-field>
     <mat-form-field class="score__form">
-      <input matInput placeholder="{{ game.awayTeam.name }}" class="score__input">
+      <input matInput
+        placeholder="{{ game.awayTeam.name }}"
+        class="score__input"
+        type="number"
+        min=0>
     </mat-form-field>
   </div>
   <mat-action-row>

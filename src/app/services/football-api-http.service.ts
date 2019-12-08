@@ -36,7 +36,7 @@ export class FootballApiHttpService {
       map( data => 
         data.api.fixtures.map(game => (
           {
-            game: game,
+            game_id: game.fixture_id,
             homeTeam: game.homeTeam,
             awayTeam: game.awayTeam 
           })) 
