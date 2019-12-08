@@ -11,23 +11,5 @@
       Прогноза нет
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <div class="score__forms">
-    <mat-form-field class="score__form">
-      <input matInput
-        placeholder="{{ game.homeTeam.name }}"
-        class="score__input"
-        type="number"
-        min=0>
-    </mat-form-field>
-    <mat-form-field class="score__form">
-      <input matInput
-        placeholder="{{ game.awayTeam.name }}"
-        class="score__input"
-        type="number"
-        min=0>
-    </mat-form-field>
-  </div>
-  <mat-action-row>
-    <button mat-button color="accent">Отправить</button>
-  </mat-action-row>
+  <app-add-forecast [game]="game"></app-add-forecast>
 </mat-expansion-panel>
