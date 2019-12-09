@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LeaguesNavModule } from './leagues-nav/leagues-nav.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SidebarModule } from './sidebar/sidebar.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     LeaguesNavModule,
-    HttpClientModule
+    HttpClientModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
