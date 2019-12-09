@@ -19,3 +19,8 @@ span {
   margin-right: 5px;
   text-align: center;
 }
+
+.sidenav__button {
+  position: absolute;
+  left: 0px;
+}

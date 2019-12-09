@@ -1,4 +1,5 @@
 <mat-toolbar color="primary" class="navbar">
+  <button mat-button class="sidenav__button" (click)="onMenuButton()"><mat-icon>menu</mat-icon></button>
   <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" (change)="onChange(toggleGroup.value)">
     <mat-button-toggle value={{league.value}} *ngFor="let league of leagues">
       <img class="league__img" src={{league.logoLink}}>{{league.name}}

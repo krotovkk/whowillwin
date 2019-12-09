@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ILeagueCard } from "../model/ileaguecard";
 import { FootballApiHttpService } from '../services/football-api-http.service';
@@ -9,6 +9,7 @@ import { FootballApiHttpService } from '../services/football-api-http.service';
   styleUrls: ['./leagues-nav.component.css']
 })
 export class LeaguesNavComponent implements OnInit {
+  @Output() menuClick = new EventEmitter;
 
   leagues: ILeagueCard[];
   currentLeague: ILeagueCard;
@@ -22,6 +23,10 @@ export class LeaguesNavComponent implements OnInit {
   onChange(val: string) {
     const currentLeague = this.leagues.filter(league => league.value === val)[0];
     this.getCurrentLeagueRound(currentLeague);
+  }
+
+  onMenuButton() {
+    this.menuClick.emit();
   }
 
   private getCurrentLeagueRound(currentLeague: ILeagueCard) {
