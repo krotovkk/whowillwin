@@ -1,5 +1,7 @@
-<p class="game_result">Матч закончился со счетом {{ game.goalsHomeTeam }} : {{ game.goalsAwayTeam }}</p>
-<div *ngIf="!(game.gameStatus == 'Match Finished')">
+<p class="game_result">
+  <span *ngIf="game.gameStatus == 'Match Finished'; else elseBlock">Матч закончился со счетом {{ game.goalsHomeTeam }} : {{ game.goalsAwayTeam }}</span>
+</p>
+<ng-template #elseBlock>
   <div class="score__forms" [formGroup]="form" >
     <mat-form-field class="score__form">
       
@@ -27,4 +29,4 @@
     class="add-forecast__button"
     [disabled]="form.pristine || form.invalid"
     (click)="onSubmit()">Отправить</button>
-</div>
+</ng-template>
