@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IForecastDto } from '../model/IForecast';
+import { IForecastDto, IForecast } from '../model/IForecast';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,7 @@ export class ForecastLocalService {
     this.forecasts = forecasts;
   }
 
-  getForecastByGameId(gameId: number): string {
-    return this.forecasts[gameId] ? 
-      this.forecasts[gameId].goalsHomeTeam + ' : ' + this.forecasts[gameId].goalsAwayTeam : 
-      'Прогноза нет'
+  getForecastByGameId(gameId: number): IForecast {
+    return this.forecasts[gameId] ? this.forecasts[gameId] : null
   }
 }
