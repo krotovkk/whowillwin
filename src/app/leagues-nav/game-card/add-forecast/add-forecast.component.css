@@ -6,3 +6,8 @@
 .add-forecast__button {
   float: right;
 }
+
+.game_result {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}

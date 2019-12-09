@@ -21,7 +21,6 @@ export class AddForecastComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     const goalsHomeTeamValue = this.forecast ? this.forecast.goalsHomeTeam : '';
     const goalsAwayTeamValue = this.forecast ? this.forecast.goalsAwayTeam : '';
 

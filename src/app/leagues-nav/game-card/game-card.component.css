@@ -7,3 +7,19 @@
 span {
   margin-right: 1rem;
 }
+
+.correct_score {
+  color: green;
+}
+
+.wrong_score {
+  color: red;
+}
+
+.partially_score {
+  color: orange;
+}
+
+.score {
+  font-weight: 700;
+}

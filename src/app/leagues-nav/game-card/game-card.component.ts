@@ -3,6 +3,7 @@ import { IGame } from 'src/app/model/igame';
 import { ForecastLocalService } from 'src/app/services/forecast-local.service';
 import { IForecast } from 'src/app/model/IForecast';
 
+
 @Component({
   selector: 'app-game-card',
   templateUrl: './game-card.component.html',
@@ -10,14 +11,19 @@ import { IForecast } from 'src/app/model/IForecast';
 })
 export class GameCardComponent implements OnInit {
   @Input() game: IGame;
-  forecast: IForecast;
+  
+  forecast: IForecast;  
   forecastScore: string;
+  forecastResult: string;
 
   constructor(private forecastLocalService: ForecastLocalService) { }
 
   ngOnInit() {
     this.forecast = this.forecastLocalService.getForecastByGameId(this.game.gameId);
     this.setForecastScore();
+    if (this.game.gameStatus == "Match Finished" && this.forecast){
+      this.defineForecastResult();
+    }
   }
 
   private setForecastScore() {
@@ -27,6 +33,25 @@ export class GameCardComponent implements OnInit {
   onForecastChange(newForecast: IForecast) {
     this.forecast = newForecast;
     this.setForecastScore();
+  }
+
+  defineForecastResult() {
+    const forecastGoalsDifference = this.forecast.goalsHomeTeam - this.forecast.goalsAwayTeam;
+    const actualGameGoalsDifference = this.game.goalsHomeTeam - this.game.goalsAwayTeam;
+    
+    if (forecastGoalsDifference === actualGameGoalsDifference) {
+      if (forecastGoalsDifference === 0){
+        this.forecastResult = this.forecast.goalsHomeTeam === this.game.goalsHomeTeam ?
+          'correct':
+          'partially';
+      } else {
+        this.forecastResult = 'correct';
+      }
+    } else if(forecastGoalsDifference * actualGameGoalsDifference > 0) {
+      this.forecastResult = 'partially';
+    } else {
+      this.forecastResult = 'wrong'
+    }
   }
 
 }

@@ -7,7 +7,12 @@
       <img src="{{ game.awayTeam.logo }}" class="team__logo">
       <span class="second">{{ game.awayTeam.team_name }}</span>
     </mat-panel-title>
-    <mat-panel-description>
+    <mat-panel-description [ngClass]="{
+      'correct_score': forecastResult == 'correct',
+      'wrong_score': forecastResult == 'wrong',
+      'partially_score': forecastResult == 'partially',
+      'score': forecastResult
+    }">
       {{ forecastScore }}
     </mat-panel-description>
   </mat-expansion-panel-header>
