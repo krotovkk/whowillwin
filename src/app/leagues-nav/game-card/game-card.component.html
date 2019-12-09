@@ -11,5 +11,5 @@
       {{ forecastScore }}
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <app-add-forecast [game]="game" (forecast)="forecast" (onForecastChange)="onForecastChange($event); mep.expanded = false"></app-add-forecast>
+  <app-add-forecast [game]="game" [forecast]="forecast" (onForecastChange)="onForecastChange($event); mep.expanded = false"></app-add-forecast>
 </mat-expansion-panel>
