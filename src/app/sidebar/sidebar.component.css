@@ -1,0 +1,19 @@
+.pages__list {
+  list-style-type: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.list__item {
+  margin: 20px;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.toggle__button {
+  left: 10px;
+} 
