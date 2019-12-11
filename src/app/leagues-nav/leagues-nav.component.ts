@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ILeagueCard } from "../model/ileaguecard";
-import { FootballApiHttpService } from '../services/football-api-http.service';
+import { FootballApiHttpService } from '../services/api/football-api-http.service';
 
 @Component({
   selector: 'app-leagues-nav',

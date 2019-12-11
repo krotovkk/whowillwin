@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IGame } from 'src/app/model/igame';
-import { GameForecastHttpService } from 'src/app/services/game-forecast-http.service';
+import { GameForecastHttpService } from 'src/app/services/forecasts/game-forecast-http.service';
 import { IForecast } from 'src/app/model/IForecast';
 
 @Component({

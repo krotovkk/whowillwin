@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IForecastDto, IForecast } from '../model/IForecast';
+import { IForecastDto, IForecast } from '../../model/IForecast';
 
 @Injectable({
   providedIn: 'root'

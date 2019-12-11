@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IGame } from 'src/app/model/igame';
-import { ForecastLocalService } from 'src/app/services/forecast-local.service';
+import { ForecastLocalService } from 'src/app/services/forecasts/forecast-local.service';
 import { IForecast } from 'src/app/model/IForecast';
 
 
