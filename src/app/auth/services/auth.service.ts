@@ -22,4 +22,11 @@ export class AuthService {
   logout(): void {
     this.isLoggedIn = false;
   }
+
+  getReirectUrl() {
+    if(!this.redirectUrl) {
+      return '';
+    }
+    return this.redirectUrl;
+  }
 }

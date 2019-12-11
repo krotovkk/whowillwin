@@ -10,6 +10,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HistoryModule } from './history/history.module';
 import { LoginComponent } from './login/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login/login.component';
     HttpClientModule,
     SidebarModule,
     AppRoutingModule,
-    HistoryModule
+    HistoryModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
