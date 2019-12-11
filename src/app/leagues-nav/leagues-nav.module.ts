@@ -6,6 +6,7 @@ import { GamesListComponent } from './games-list/games-list.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { AddForecastComponent } from './game-card/add-forecast/add-forecast.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LeaguesNavRoutingModule } from './leagues-nav-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LeaguesNavRoutingModule
   ],
   exports: [LeaguesNavComponent],
 })

@@ -21,8 +21,8 @@ export class LeaguesNavComponent implements OnInit {
   }
 
   onChange(val: string) {
-    const currentLeague = this.leagues.filter(league => league.value === val)[0];
-    this.getCurrentLeagueRound(currentLeague);
+    // const currentLeague = this.leagues.filter(league => league.value === val)[0];
+    // this.getCurrentLeagueRound(currentLeague);
   }
 
   onMenuButton() {

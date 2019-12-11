@@ -36,5 +36,8 @@
   margin: 5px;
   /* vertical-align:middle; */
 }
-
+ a {
+   color: white;
+   text-decoration: none;
+ }
 
