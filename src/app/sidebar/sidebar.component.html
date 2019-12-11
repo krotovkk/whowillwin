@@ -2,7 +2,7 @@
   <mat-sidenav #sidenav mode="over">
     <p><button mat-button (click)="sidenav.toggle()" class="toggle__button"><mat-icon>menu</mat-icon></button></p>
     <ul class="pages__list">
-      <li class="list__item"><a href="#" class="link">Текущий тур</a></li>
+      <li class="list__item"><a routerLink="/games" class="link" (click)="sidenav.toggle()">Текущий тур</a></li>
       <li class="list__item"><a routerLink="/history" class="link" (click)="sidenav.toggle()">История</a></li>
       <li class="list__item"><a href="#" class="link">Таблица</a></li>
     </ul>

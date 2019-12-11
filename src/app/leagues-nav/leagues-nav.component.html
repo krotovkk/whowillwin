@@ -1,4 +1,13 @@
-<mat-toolbar color="primary" class="navbar">
+<div class="leagues">
+  <div class="league" *ngFor="let league of leagues">
+    <div class="league-content" (click)="onChange(league.value)">
+      <img class="league__img" src={{league.logoLink}}><span>{{league.name}}</span>
+    </div>
+  </div>
+</div>
+<app-games-list [currentLeague]="currentLeague"></app-games-list>
+
+<!-- <div color="primary" class="navbar">
   <button mat-button class="sidenav__button" (click)="onMenuButton()"><mat-icon>menu</mat-icon></button>
   <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" (change)="onChange(toggleGroup.value)">
     <mat-button-toggle value={{league.value}} *ngFor="let league of leagues">
@@ -6,5 +15,5 @@
     </mat-button-toggle>
   </mat-button-toggle-group>
   <mat-icon class="icon">eco</mat-icon>
-</mat-toolbar>
-<app-games-list [currentLeague]="currentLeague"></app-games-list>
+</div>
+<app-games-list [currentLeague]="currentLeague"></app-games-list> -->

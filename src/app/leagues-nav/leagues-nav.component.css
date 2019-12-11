@@ -1,27 +1,40 @@
-span {
-  margin-right: 1rem;
-}
-
-.navbar {
-  position: relative;
+.leagues {
+  display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
-.icon {
+.league {
+  margin: 5px;
+  width: 150px;
+  height: 70px;
+  background-color: indigo;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  /* opacity: 0.8; */
+  position: relative;
+}
+
+.league.active {
+  opacity: 1;
+}
+
+.league-content {
   position: absolute;
-  right: 20px;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
 }
 
 .league__img {
-  max-width: 70px;
+  max-width: 50px;
   max-height: 40px;
-  margin-right: 5px;
-  text-align: center;
+  margin: 5px;
+  /* vertical-align:middle; */
 }
 
-.sidenav__button {
-  position: absolute;
-  left: 0px;
-}
 
