@@ -7,6 +7,12 @@ import { ILeagueCard } from 'src/app/model/ileaguecard';
 export class LeaguesService {
 
   constructor() { }
+
+  getLeagueId(country: string): number {
+    const leagues = this.getLeagues();
+    return leagues.filter(league => league.value === country)[0].id
+  }
+
   getLeagues(): ILeagueCard[] {
     return [
       {

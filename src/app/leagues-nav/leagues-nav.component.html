@@ -1,9 +1,10 @@
 <div class="leagues">
   <div class="league" *ngFor="let league of leagues">
     <a [routerLink]=[league.value] href="#">
-      <div class="league-content" (click)="onChange(league.value)">
+      <div class="league-content">
         <img class="league__img" src={{league.logoLink}}><span>{{league.name}}</span>
       </div>
     </a>
   </div>
 </div>
+<router-outlet></router-outlet>

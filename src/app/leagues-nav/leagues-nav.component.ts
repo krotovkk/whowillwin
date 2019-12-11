@@ -3,6 +3,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ILeagueCard } from "../model/ileaguecard";
 import { FootballApiHttpService } from '../services/api/football-api-http.service';
 import { LeaguesService } from '../services/leagues/leagues.service';
+import { GameForecastHttpService } from '../services/forecasts/game-forecast-http.service';
+import { ForecastLocalService } from '../services/forecasts/forecast-local.service';
 
 @Component({
   selector: 'app-leagues-nav',
@@ -11,28 +13,13 @@ import { LeaguesService } from '../services/leagues/leagues.service';
 })
 export class LeaguesNavComponent implements OnInit {
   leagues: ILeagueCard[];
-  currentLeague: ILeagueCard;
-
+  
   constructor( 
-    private footballAPIService: FootballApiHttpService,
-    private leaguesService: LeaguesService
+    private leaguesService: LeaguesService,
   ) { }
 
   ngOnInit() {
-    this.leagues = this.leaguesService.getLeagues();    
-  }
-
-  private getCurrentLeagueRound(currentLeague: ILeagueCard) {
-    this.footballAPIService.getCurrentLeagueRound(currentLeague.id).subscribe(
-      round => {
-        currentLeague.round = round
-        this.setCurrentLeague(currentLeague)
-      }
-    );
-  }
-
-  private setCurrentLeague(currentLeague: ILeagueCard) {
-    this.currentLeague = currentLeague;
+    this.leagues = this.leaguesService.getLeagues();
   }
 
 }

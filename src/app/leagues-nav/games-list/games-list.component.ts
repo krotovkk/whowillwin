@@ -5,6 +5,9 @@ import { FootballApiHttpService } from 'src/app/services/api/football-api-http.s
 import { GameLocalDataService } from 'src/app/services/game/game-local-data.service';
 import { GameForecastHttpService } from 'src/app/services/forecasts/game-forecast-http.service';
 import { ForecastLocalService } from 'src/app/services/forecasts/forecast-local.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, switchMap } from 'rxjs/operators';
+import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
 @Component({
   selector: 'app-games-list',
@@ -19,33 +22,22 @@ export class GamesListComponent implements OnInit {
     private footballAPIService: FootballApiHttpService,
     private gameLocalDataService: GameLocalDataService,
     private gameForecastHttpService: GameForecastHttpService,
-    private forecastLocalService: ForecastLocalService
+    private forecastLocalService: ForecastLocalService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private leagueService: LeaguesService
   ) { }
 
   ngOnInit() {
-    this.gameForecastHttpService.getForecasts().subscribe(data => 
-      this.forecastLocalService.setForecasts(data)
+    this.route.paramMap.pipe(
+      map(param => this.leagueService.getLeagueId(param.get('country'))),
+      switchMap(id => this.footballAPIService.getCurrentLeagueRound(id)),
+      switchMap(([id, round]) => this.footballAPIService.getAllGamesByRoundAndId(id, round))
     )
-    // this.getGames();
-  }
-
-  ngOnChanges(): void {
-    if (this.currentLeague){
-      this.getGames();      
-    }
-  }
-
-  private parseGames( ) {
-    this.games = this.gameLocalDataService.getRoundGames()
-  }
-
-  private getGames() {
-    this.footballAPIService.getAllGamesByRoundAndId(this.currentLeague.id, this.currentLeague.round)
-      .subscribe( data => {
+      .subscribe(data => {
         this.gameLocalDataService.setRoundGames(data),
-        this.parseGames()
-      }
-    );
+        this.games = this.gameLocalDataService.getRoundGames()      }
+    )
   }
 
 }

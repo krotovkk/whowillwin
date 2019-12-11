@@ -14,14 +14,14 @@ interface response {
 export class FootballApiHttpService {
   constructor(private http: HttpClient) { }
 
-  getCurrentLeagueRound(leagueId: number): Observable<string> {
+  getCurrentLeagueRound(leagueId: number): Observable<[number, string]> {
     return this.http.request<response>(
       'GET',
       `${footballApiConfig.url}/fixtures/rounds/${leagueId}/current`,
       {
         headers: footballApiConfig.headers
       })
-      .pipe(map(data => data.api.fixtures[0]));
+      .pipe(map(data => [leagueId, data.api.fixtures[0]]));
   }
 
   getAllGamesByRoundAndId(id: number, round: string): Observable<any>{
