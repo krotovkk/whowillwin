@@ -8,6 +8,7 @@ import { LeaguesNavModule } from './leagues-nav/leagues-nav.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HistoryModule } from './history/history.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     LeaguesNavModule,
     HttpClientModule,
     SidebarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HistoryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
