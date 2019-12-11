@@ -14,6 +14,10 @@
         </mat-form-field>
       </p>
 
+      <p *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </p>
+
       <div class="button">
         <button mat-button type="submit" [disabled]="form.pristine || form.invalid">Войти</button>
       </div>

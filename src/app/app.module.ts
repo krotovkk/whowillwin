@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HistoryModule } from './history/history.module';
 import { LoginComponent } from './login/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarModule,
     AppRoutingModule,
     HistoryModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
