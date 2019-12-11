@@ -7,6 +7,7 @@ import { MaterialModule } from './material/material.module';
 import { LeaguesNavModule } from './leagues-nav/leagues-nav.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
     MaterialModule,
     LeaguesNavModule,
     HttpClientModule,
-    SidebarModule
+    SidebarModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

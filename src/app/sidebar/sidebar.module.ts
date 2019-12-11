@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar.component';
 import { LeaguesNavModule } from '../leagues-nav/leagues-nav.module';
 import { MaterialModule } from '../material/material.module';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     LeaguesNavModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [SidebarComponent]
 })
