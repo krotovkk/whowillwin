@@ -17,3 +17,12 @@
 .toggle__button {
   left: 10px;
 } 
+
+.toolbar {
+  position: relative;
+}
+
+.login__button {
+  position: absolute;
+  right: 10px;
+}
