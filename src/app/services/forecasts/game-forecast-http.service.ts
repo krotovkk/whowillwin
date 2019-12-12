@@ -24,7 +24,7 @@ export class GameForecastHttpService {
     return this.authService.user$.pipe(
       filter(user => !!user),
       take(1),
-      map(({ uid }) => this.db.object(`users/${uid}/forecasts/${forecast.gameId}`)),
+      map(({ uid }) => this.db.object(`users/${uid}/forecasts/${forecast.game.gameId}`)),
       switchMap(obj =>
         obj.set(forecast),
       ),

@@ -14,7 +14,6 @@ export class ForecastLocalService {
   }
 
   setForecasts(forecasts: IForecastDto[]): void {
-    console.log(forecasts)
     forecasts.map(item => (
       this.forecasts = Object.assign(this.forecasts, item)
     ));

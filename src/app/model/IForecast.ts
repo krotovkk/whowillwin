@@ -1,5 +1,7 @@
+import { IGame } from './igame';
+
 export interface IForecast {
-  gameId:number
+  game:IGame
   goalsHomeTeam: number,
   goalsAwayTeam: number
 }

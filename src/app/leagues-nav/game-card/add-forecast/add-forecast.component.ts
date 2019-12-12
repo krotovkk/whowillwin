@@ -32,7 +32,7 @@ export class AddForecastComponent implements OnInit {
 
   onSubmit() {
     this.forecast = {
-      gameId: this.game.gameId,
+      game: this.game,
       goalsHomeTeam: this.form.value.goalsHomeTeam,
       goalsAwayTeam: this.form.value.goalsAwayTeam
     }
