@@ -1,6 +1,12 @@
 <mat-card class="history_item">
-  <div>{{ forecast.game.homeTeam }} - {{ forecast.game.awayTeam }}</div>
-  <div>actual result</div>
-  <div>your result</div>
+  <div>
+    <img src="{{ forecast.game.homeTeam.logo }}" class="team__logo">
+    <span class="first">{{ forecast.game.homeTeam.team_name }}</span>
+    <span>-</span>
+    <img src="{{ forecast.game.awayTeam.logo }}" class="team__logo">
+    <span class="second">{{ forecast.game.awayTeam.team_name }}</span>
+  </div>
+  <div>{{ actualScore }}</div>
+  <div>{{ forecastScore }}</div>
   <div>Count of points</div>
 </mat-card>

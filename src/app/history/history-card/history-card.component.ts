@@ -8,10 +8,16 @@ import { IForecast } from 'src/app/model/IForecast';
 })
 export class HistoryCardComponent implements OnInit {
   @Input() forecast: IForecast;
+  actualScore: string;
+  forecastScore: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.forecastScore = this.forecast.goalsHomeTeam + ' : ' + this.forecast.goalsAwayTeam;
+    this.actualScore = this.forecast.game.gameStatus === "Match Finished" ? 
+      this.forecast.game.goalsHomeTeam + ' : ' + this.forecast.game.goalsAwayTeam :
+      'Матч не закончился' 
   }
 
 }
