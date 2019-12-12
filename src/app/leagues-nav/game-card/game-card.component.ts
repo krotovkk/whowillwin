@@ -16,7 +16,9 @@ export class GameCardComponent implements OnInit {
   forecastScore: string;
   forecastResult: string;
 
-  constructor(private forecastLocalService: ForecastLocalService) { }
+  constructor(
+    private forecastLocalService: ForecastLocalService
+  ) { }
 
   ngOnInit() {
     this.forecast = this.forecastLocalService.getForecastByGameId(this.game.gameId);
@@ -27,7 +29,7 @@ export class GameCardComponent implements OnInit {
   }
 
   private setForecastScore() {
-    this.forecastScore = this.forecast ? this.forecast.goalsHomeTeam + ' : ' + this.forecast.goalsAwayTeam : 'Прогноза нет'
+    this.forecastScore = this.forecast ? this.forecast.goalsHomeTeam + ' : ' + this.forecast.goalsAwayTeam : 'Прогноза нет';
   }
 
   onForecastChange(newForecast: IForecast) {

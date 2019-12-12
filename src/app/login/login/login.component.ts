@@ -34,13 +34,13 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     const { email, password } = this.form.value;
-
     this.errorMessage = '';
 
     this.authService.login(email, password).subscribe(
       () => {
         this.form.reset();
-        this.authService.isLoggedIn = true
+        this.authService.isLoggedIn = true;
+        this.router.navigate(['/games'])
       },
       error => {
         const code = error && error.code ? error.code : null;

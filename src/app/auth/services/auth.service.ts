@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of, from } from 'rxjs';
+import { Observable, of, from, BehaviorSubject } from 'rxjs';
 import { tap, delay, map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { IUser } from 'src/app/model/iuser';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,8 @@ export class AuthService {
   isLoggedIn = false;
 
   redirectUrl: string;
+
+  private _user$ = new BehaviorSubject<IUser>(null);
 
   constructor(private afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.authState
@@ -24,7 +27,18 @@ export class AuthService {
           return null;
         }),
       )
-      .subscribe(console.log);
+      .subscribe(user => {
+        this._user$.next(user);
+
+        if (this.redirectUrl) {
+            this.router.navigate([this.redirectUrl]);
+            this.redirectUrl = '';
+        }
+    });
+  }
+
+  get user$(): Observable<IUser> {
+    return this._user$.asObservable();
   }
 
   login(email: string, password: string): Observable<any> {
