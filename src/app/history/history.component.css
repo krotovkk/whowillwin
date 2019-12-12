@@ -1,0 +1,14 @@
+:host {
+  margin: 10px;
+}
+
+.history_list {
+  display: flex;
+  justify-content: center;
+}
+
+.history_item {
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
