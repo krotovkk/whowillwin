@@ -16,10 +16,15 @@ export class LeaguesNavComponent implements OnInit {
   
   constructor( 
     private leaguesService: LeaguesService,
+    private forecastLocalService: ForecastLocalService,
+    private gameForecastHttpService: GameForecastHttpService,
   ) { }
 
   ngOnInit() {
     this.leagues = this.leaguesService.getLeagues();
+    this.gameForecastHttpService.getForecasts().subscribe(data =>
+      this.forecastLocalService.setForecasts(data)
+    )
   }
 
 }

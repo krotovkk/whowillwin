@@ -5,7 +5,7 @@ import { IForecastDto, IForecast } from '../../model/IForecast';
   providedIn: 'root'
 })
 export class ForecastLocalService {
-  private forecasts: IForecastDto;
+  private forecasts: IForecastDto = {};
 
   constructor() { }
 
@@ -13,8 +13,11 @@ export class ForecastLocalService {
     return this.forecasts;
   }
 
-  setForecasts(forecasts: IForecastDto): void {
-    this.forecasts = forecasts;
+  setForecasts(forecasts: IForecastDto[]): void {
+    console.log(forecasts)
+    forecasts.map(item => (
+      this.forecasts = Object.assign(this.forecasts, item)
+    ));
   }
 
   getForecastByGameId(gameId: number): IForecast {

@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IForecast, IForecastDto } from '../../model/IForecast';
 import { Observable } from 'rxjs';
+import { filter, take, map, switchMap } from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 const BASE_URL = `${environment.firebaseConfig.databaseURL}`
 
@@ -11,13 +14,33 @@ const BASE_URL = `${environment.firebaseConfig.databaseURL}`
 })
 export class GameForecastHttpService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private db: AngularFireDatabase,
+  ) { }
 
-  addForecast(forecast: IForecast): Observable<IForecast> {
-    return this.http.put<IForecast>(`${BASE_URL}/forecast/${forecast.gameId}.json`, forecast);
+  addForecast(forecast: IForecast): Observable<void> {
+    return this.authService.user$.pipe(
+      filter(user => !!user),
+      take(1),
+      map(({ uid }) => this.db.object(`users/${uid}/forecasts/${forecast.gameId}`)),
+      switchMap(obj =>
+        obj.set(forecast),
+      ),
+    );
   }
 
   getForecasts() {
-    return this.http.get<IForecastDto>(`${ BASE_URL }/forecast.json`)
+    return this.authService.user$.pipe(
+      filter(user => !!user),
+      take(1),
+      switchMap(({ uid }) =>
+        this.db.list<IForecast>(`users/${uid}/forecasts`).snapshotChanges(),
+      ),
+      map(snapshots =>
+        snapshots.map(({ key, payload }) => ({ [key]: payload.val() })),
+      ),
+    )
   }
 }
