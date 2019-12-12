@@ -4,15 +4,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { HistoryComponent } from './history/history.component';
 import { LeaguesNavComponent } from './leagues-nav/leagues-nav.component';
 import { LoginComponent } from './login/login/login.component';
+import { RatingTableComponent } from './rating-table/rating-table.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   {
     path: 'history',
-    component: HistoryComponent
+    component: HistoryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'rating',
+    component: RatingTableComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
