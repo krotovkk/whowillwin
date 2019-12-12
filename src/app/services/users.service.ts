@@ -15,4 +15,6 @@ export class UsersService {
       .pipe(map((users: any[]) => users.map(user => ({ id: user.key, ...user.payload.val().info }))));
   }
 
+  
+
 }
