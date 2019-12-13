@@ -15,7 +15,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import { RatingTableModule } from './rating-table/rating-table.module';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,7 @@ import { RatingTableModule } from './rating-table/rating-table.module';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    RatingTableModule
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
