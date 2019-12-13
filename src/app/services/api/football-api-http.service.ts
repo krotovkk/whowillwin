@@ -36,4 +36,16 @@ export class FootballApiHttpService {
       map( data => 
         data.api.fixtures.map(game => game)));
   }
+
+  getGameByFixturesId(gameId: number) {
+    return this.http.request<response>(
+      'GET',
+      `${footballApiConfig.url}/fixtures/id/${gameId}`,
+      {
+        headers: footballApiConfig.headers
+      }
+    ).pipe(
+      map( data => 
+        data.api.fixtures.map(game => game)));
+  }
 }

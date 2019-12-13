@@ -6,7 +6,11 @@
     <img src="{{ forecast.game.awayTeam.logo }}" class="team__logo">
     <span class="second">{{ forecast.game.awayTeam.team_name }}</span>
   </div>
-  <div>{{ actualScore }}</div>
-  <div>{{ forecastScore }}</div>
-  <div>Count of points</div>
+  <div >{{ actualScore }}</div>
+  <div [ngClass]="{
+    'correct_score': forecastResult == 'correct',
+    'wrong_score': forecastResult == 'wrong',
+    'partially_score': forecastResult == 'partially',
+    'score': forecastResult
+  }">{{ forecastScore }}</div>
 </mat-card>

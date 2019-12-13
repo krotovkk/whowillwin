@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ForecastLocalService } from 'src/app/services/forecasts/forecast-local.service';
 import { IForecast } from 'src/app/model/IForecast';
+import { GameForecastHttpService } from 'src/app/services/forecasts/game-forecast-http.service';
 
 @Component({
   selector: 'app-history-list',
@@ -10,10 +11,18 @@ import { IForecast } from 'src/app/model/IForecast';
 export class HistoryListComponent implements OnInit {
   forecasts: IForecast[];
 
-  constructor(private localForecastService: ForecastLocalService) { }
+  constructor(
+    private localForecastService: ForecastLocalService,
+    private forecastService: GameForecastHttpService
+  ) { }
 
   ngOnInit() {
-    this.forecasts = Object.values(this.localForecastService.getForecasts())
+    this.forecastService.getForecasts().subscribe(forecasts => {
+      if (forecasts) {
+        this.localForecastService.setForecasts(forecasts);
+        this.forecasts = Object.values(this.localForecastService.getForecasts())
+      }
+    })
   }
 
 }
