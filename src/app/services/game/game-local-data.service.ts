@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { IGame } from '../../model/igame';
+import { games } from "../../example-games";
+
+const exampleGames = games;
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +26,6 @@ export class GameLocalDataService {
   }
 
   getRoundGames(): IGame[] {
-    return this.roundGames
+    return this.roundGames.concat(exampleGames);
   }
 }

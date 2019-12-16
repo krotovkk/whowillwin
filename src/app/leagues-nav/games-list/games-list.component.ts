@@ -3,9 +3,7 @@ import { IGame } from 'src/app/model/igame';
 import { ILeagueCard } from 'src/app/model/ileaguecard';
 import { FootballApiHttpService } from 'src/app/services/api/football-api-http.service';
 import { GameLocalDataService } from 'src/app/services/game/game-local-data.service';
-import { GameForecastHttpService } from 'src/app/services/forecasts/game-forecast-http.service';
-import { ForecastLocalService } from 'src/app/services/forecasts/forecast-local.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
@@ -21,10 +19,7 @@ export class GamesListComponent implements OnInit {
   constructor(
     private footballAPIService: FootballApiHttpService,
     private gameLocalDataService: GameLocalDataService,
-    private gameForecastHttpService: GameForecastHttpService,
-    private forecastLocalService: ForecastLocalService,
     private route: ActivatedRoute,
-    private router: Router,
     private leagueService: LeaguesService
   ) { }
 
@@ -36,7 +31,9 @@ export class GamesListComponent implements OnInit {
     )
       .subscribe(data => {
         this.gameLocalDataService.setRoundGames(data),
-        this.games = this.gameLocalDataService.getRoundGames()      }
+        this.games = this.gameLocalDataService.getRoundGames()
+        console.log(this.games)
+      }
     )
   }
 
