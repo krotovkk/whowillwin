@@ -1,4 +1,4 @@
 <div class='history_list'>
   <app-history-card *ngFor="let forecast of forecasts" [forecast]="forecast"></app-history-card>
-  <div *ngIf="forecasts" class="message"><p>Вы не делали пока прогнозов</p></div>
+  <div *ngIf="forecastsDoesNotExist" class="message"><p>Вы не делали пока прогнозов</p></div>
 </div>

@@ -10,6 +10,7 @@ import { GameForecastHttpService } from 'src/app/services/forecasts/game-forecas
 })
 export class HistoryListComponent implements OnInit {
   forecasts: IForecast[];
+  forecastsDoesNotExist:boolean = true;
 
   constructor(
     private localForecastService: ForecastLocalService,
@@ -18,9 +19,10 @@ export class HistoryListComponent implements OnInit {
 
   ngOnInit() {
     this.forecastService.getForecasts().subscribe(forecasts => {
-      if (forecasts) {
+      if (forecasts.length) {
         this.localForecastService.setForecasts(forecasts);
         this.forecasts = Object.values(this.localForecastService.getForecasts())
+        this.forecastsDoesNotExist = false
       }
     })
   }
