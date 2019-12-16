@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.team__logo {
+  margin-right: 10px;
+  max-width: 25px;
+  max-height: 25px;
+}
+
+span {
+  margin-right: 1rem;
+}
+
+.correct_score {
+  color: green;
+}
+
+.wrong_score {
+  color: red;
+}
+
+.partially_score {
+  color: orange;
+}
+
+.score {
+  font-weight: 700;
+}

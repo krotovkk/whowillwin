@@ -1,0 +1,32 @@
+<p class="game_result">
+  <span *ngIf="game.gameStatus == 'Match Finished'; else elseBlock">Матч закончился со счетом {{ game.goalsHomeTeam }} : {{ game.goalsAwayTeam }}</span>
+</p>
+<ng-template #elseBlock>
+  <div class="score__forms" [formGroup]="form" >
+    <mat-form-field class="score__form">
+      
+      <input matInput
+        placeholder="{{ game.homeTeam.team_name }}"
+        class="score__input"
+        type="number"
+        min=0
+        formControlName="goalsHomeTeam">
+        
+    </mat-form-field>
+    <mat-form-field class="score__form">
+      
+      <input matInput
+        placeholder="{{ game.awayTeam.team_name }}"
+        class="score__input"
+        type="number"
+        min=0
+        formControlName="goalsAwayTeam">
+    
+    </mat-form-field>
+  </div>
+  <button mat-button
+    color="accent"
+    class="add-forecast__button"
+    [disabled]="form.pristine || form.invalid"
+    (click)="onSubmit()">Отправить</button>
+</ng-template>

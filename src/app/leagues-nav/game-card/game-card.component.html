@@ -1,0 +1,20 @@
+<mat-expansion-panel #mep>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <img src="{{ game.homeTeam.logo }}" class="team__logo">
+      <span class="first">{{ game.homeTeam.team_name }}</span>
+      <span>-</span>
+      <img src="{{ game.awayTeam.logo }}" class="team__logo">
+      <span class="second">{{ game.awayTeam.team_name }}</span>
+    </mat-panel-title>
+    <mat-panel-description [ngClass]="{
+      'correct_score': forecastResult == 'correct',
+      'wrong_score': forecastResult == 'wrong',
+      'partially_score': forecastResult == 'partially',
+      'score': forecastResult
+    }">
+      {{ forecastScore }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <app-add-forecast [game]="game" [forecast]="forecast" (onForecastChange)="onForecastChange($event); mep.expanded = false"></app-add-forecast>
+</mat-expansion-panel>

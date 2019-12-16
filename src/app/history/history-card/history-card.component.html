@@ -1,0 +1,16 @@
+<mat-card class="history_item">
+  <div>
+    <img src="{{ forecast.game.homeTeam.logo }}" class="team__logo">
+    <span class="first">{{ forecast.game.homeTeam.team_name }}</span>
+    <span>-</span>
+    <img src="{{ forecast.game.awayTeam.logo }}" class="team__logo">
+    <span class="second">{{ forecast.game.awayTeam.team_name }}</span>
+  </div>
+  <div >{{ actualScore }}</div>
+  <div [ngClass]="{
+    'correct_score': forecastResult == 'correct',
+    'wrong_score': forecastResult == 'wrong',
+    'partially_score': forecastResult == 'partially',
+    'score': forecastResult
+  }">{{ forecastScore }}</div>
+</mat-card>

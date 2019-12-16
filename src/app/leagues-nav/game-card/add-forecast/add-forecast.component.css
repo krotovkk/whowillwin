@@ -1,0 +1,13 @@
+.score__form {
+  width: 100px;
+  margin-right: 40px;
+}
+
+.add-forecast__button {
+  float: right;
+}
+
+.game_result {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}

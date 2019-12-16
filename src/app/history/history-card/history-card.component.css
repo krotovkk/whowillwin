@@ -1,0 +1,7 @@
+.history_item {
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 10px !important;
+}

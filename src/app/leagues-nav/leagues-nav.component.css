@@ -1,0 +1,43 @@
+.leagues {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.league {
+  margin: 5px;
+  width: 150px;
+  height: 70px;
+  background-color: indigo;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  /* opacity: 0.8; */
+  position: relative;
+}
+
+.league.active {
+  opacity: 1;
+}
+
+.league-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.league__img {
+  max-width: 50px;
+  max-height: 40px;
+  margin: 5px;
+  /* vertical-align:middle; */
+}
+ a {
+   color: white;
+   text-decoration: none;
+ }
+
